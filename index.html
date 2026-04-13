@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Tu Diseño Invisible | El libro que revela tu mapa interior</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Swiper CSS (carrusel moderno) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- Google Fonts: elegancia + legibilidad -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #FEF7E6;
+      color: #2C2B28;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, .logo, .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 1.8rem;
+    }
+
+    /* Header */
+    header {
+      background: rgba(255, 248, 235, 0.96);
+      backdrop-filter: blur(6px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #E8DCCC;
+    }
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #B8860B, #6A2E70);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .nav-links a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #4A3B2C;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #B8860B;
+    }
+
+    /* Botones */
+    .btn-primary {
+      background: #B8860B;
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    .btn-primary:hover {
+      background: #9a6e08;
+      transform: scale(1.02);
+    }
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+    }
+    .btn-whatsapp:hover {
+      background: #1da851;
+    }
+    .btn-telegram {
+      background: #0088cc;
+      color: white;
+    }
+    .btn-telegram:hover {
+      background: #006699;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem 4rem;
+      background: linear-gradient(135deg, #FFF3E0 0%, #FDE8D0 100%);
+      border-radius: 0 0 48px 48px;
+    }
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: #3A2C1F;
+      margin-bottom: 1rem;
+    }
+    .hero-sub {
+      font-size: 1.3rem;
+      color: #5E4B34;
+      max-width: 700px;
+      margin: 0 auto 1.8rem;
+    }
+    .badge {
+      background: #EAD7B5;
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #5A3E1B;
+      margin-bottom: 1rem;
+    }
+
+    /* Secciones */
+    .section-title {
+      font-size: 2.2rem;
+      text-align: center;
+      margin: 2.5rem 0 1rem;
+      color: #B8860B;
+    }
+    .premises-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+    .premise-card {
+      background: white;
+      border-radius: 28px;
+      padding: 1.6rem;
+      width: 280px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+      border: 1px solid #F0E2D0;
+      text-align: center;
+    }
+    .premise-card i {
+      font-size: 2rem;
+      color: #B8860B;
+      margin-bottom: 1rem;
+    }
+    .premise-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Carrusel Swiper */
+    .swiper {
+      width: 100%;
+      min-height: 320px;
+      margin: 2rem 0;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 20px 35px -10px rgba(0,0,0,0.1);
+      background: #EAD7B5;
+    }
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f0e6d5;
+    }
+    .swiper-slide img {
+      width: 100%;
+      display: block;
+      border-radius: 32px;
+      object-fit: contain;
+      max-height: 600px;
+    }
+
+    /* Índice / contenido */
+    .contenido-lista {
+      background: white;
+      border-radius: 32px;
+      padding: 1.8rem;
+      margin: 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .contenido-item {
+      background: #FDF5E6;
+      border-radius: 60px;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #5E4B34;
+    }
+
+    /* Testimonios */
+    .testimonios {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+    .testimonio {
+      background: white;
+      border-radius: 24px;
+      padding: 1.5rem;
+      width: 300px;
+      border-left: 4px solid #B8860B;
+    }
+    .testimonio p {
+      font-style: italic;
+    }
+    .testimonio .autor {
+      margin-top: 0.8rem;
+      font-weight: 600;
+      color: #B8860B;
+    }
+
+    /* Sección de contacto (solo botones) */
+    .contacto-directo {
+      background: #FFF8F0;
+      border-radius: 32px;
+      padding: 2rem;
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .botones-contacto {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+    .precio {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #B8860B;
+      margin: 1rem 0;
+    }
+
+    /* Métodos de pago */
+    .metodos-pago {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .metodo {
+      background: white;
+      padding: 1rem 2rem;
+      border-radius: 60px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 500;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #EAE0D0;
+      border-radius: 32px 32px 0 0;
+      margin-top: 2rem;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 780px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      .container {
+        padding: 1rem;
+      }
+      .nav-links a {
+        margin-left: 1rem;
+        font-size: 0.9rem;
+      }
+      .precio {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container header-flex">
+    <div class="logo">✦ Tu Diseño Invisible ✦</div>
+    <div class="nav-links">
+      <a href="#concepto">El concepto</a>
+      <a href="#muestras">Muestras</a>
+      <a href="#contacto">Solicitar</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="badge">Sistema ARCANUM 63 · Conocimiento reservado</div>
+      <h1 class="hero-title">Tienes un libro escrito<br>desde antes de nacer</h1>
+      <p class="hero-sub">Solo necesitas aprender a leerlo. <br>Descubre el mapa inscrito en tu alma... las coordenadas que moldean tu destino.</p>
+      <a href="#contacto" class="btn-primary"><i class="fab fa-whatsapp"></i> Solicitar por WhatsApp</a>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Premisas (concepto) -->
+    <h2 id="concepto" class="section-title">¿Qué es Tu Diseño Invisible?</h2>
+    <div class="premises-grid">
+      <div class="premise-card">
+        <i class="fas fa-dice-d6"></i>
+        <h3>El azar no existe</h3>
+        <p>Tu fecha, hora, lugar de nacimiento, tus nombres y apellidos no son accidente o casualidad. En ellos, tu alma ocultó la información que eligió utilizar para esta experiencia.</p>
+      </div>
+      <div class="premise-card">
+        <i class="fas fa-map"></i>
+        <h3>Hay un mapa oculto</h3>
+        <p>La astrología, numerología, qabalah, los arquetipos y el tarot se combinan para revelar la estructura que te modela. No se trata de adivinar, sino de descubrir el diseño. Conocerlo no es limitarte, sino liberarte.</p>
+      </div>
+      <div class="premise-card">
+        <i class="fas fa-chalkboard-user"></i>
+        <h3>El destino es moldeable</h3>
+        <p>Entender aquello que ya tienes desde tu nacimiento y los procesos internos que realizas, te permite reprogramar tus resultados. Tú eres el diseñador de tu propio destino.</p>
+      </div>
+    </div>
+
+    <!-- Índice / Contenido del libro -->
+    <h2 class="section-title">Qué encontrarás dentro</h2>
+    <div class="contenido-lista">
+      <span class="contenido-item">🔓 El despertar a tu diseño</span>
+      <span class="contenido-item">🧭 Decodificando tu camino de vida</span>
+      <span class="contenido-item">✨ El Propósito para esta existencia</span>
+      <span class="contenido-item">💼 Una guía profesional</span>
+      <span class="contenido-item">❤️ Las Relaciones en tu diseño</span>
+      <span class="contenido-item">💰 Abundancia y riqueza</span>
+      <span class="contenido-item">⏳ Una crónica del tiempo</span>
+      <span class="contenido-item">🧠 Tu Genio interior</span>
+      <span class="contenido-item">📛 Tu Nombre como camino</span>
+      <span class="contenido-item">🗝️ Tarjetas con claves</span>
+    </div>
+
+    <!-- Carrusel de imágenes (muestras reales del libro) -->
+    <h2 id="muestras" class="section-title">Fragmentos reales de un libro</h2>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="anuncio1.png" alt="Portada"></div>
+        <div class="swiper-slide"><img src="anuncio2.png" alt="Índice"></div>
+        <div class="swiper-slide"><img src="anuncio3.png" alt="Datos de entrada"></div>
+        <div class="swiper-slide"><img src="anuncio4.png" alt="Propósito"></div>
+        <div class="swiper-slide"><img src="anuncio5.png" alt="Abundancia"></div>
+        <div class="swiper-slide"><img src="anuncio6.png" alt="Hoja de ruta"></div>
+        <div class="swiper-slide"><img src="anuncio7.png" alt="Conclusión"></div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+    <!-- Testimonios -->
+    <h2 class="section-title">Quienes ya lo recibieron</h2>
+    <div class="testimonios">
+      <div class="testimonio">
+        <p>“Me mostró cosas que intuía pero no sabía cómo explicar. Claves para vivir que uso cada día. Al menos un 75% de lo que leí me resonó profundamente.”</p>
+        <div class="autor">— B. S., Ecuador</div>
+      </div>
+      <div class="testimonio">
+        <p>“Entendí por qué repito ciertos patrones y ahora sé que puedo cambiarlos. Es como si hubiera tenido el mapa frente a mí sin saber leerlo.”</p>
+        <div class="autor">— R. V., México</div>
+      </div>
+    </div>
+
+    <!-- Solicitud / contacto directo por WhatsApp y Telegram -->
+    <h2 id="contacto" class="section-title">Solicita tu libro personalizado</h2>
+    <div class="contacto-directo">
+      <p style="font-size:1.2rem; margin-bottom:0.5rem;">Escríbenos directamente y en menos de 24 horas comenzamos a trabajar en tu diseño.</p>
+      <div class="precio">Inversión: USD 19,00</div>
+      <p>Pago por PayPal o transferencia bancaria. Una vez confirmado, entregamos tu libro digital en un (1) día.</p>
+      <div class="botones-contacto">
+        <a href="https://wa.me/593984662817?text=Hola,%20quiero%20solicitar%20mi%20libro%20'Tu%20Diseño%20Invisible'" target="_blank" class="btn-primary btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="https://t.me/+(593)984662817" target="_blank" class="btn-primary btn-telegram"><i class="fab fa-telegram"></i> Telegram</a>
+      </div>
+      <p style="font-size:0.8rem; margin-top:1.5rem;">También puedes escribir al correo: <a href="mailto:the.circles.1998@gmail.com">the.circles.1998@gmail.com</a> (respuesta más lenta).</p>
+    </div>
+
+    <!-- Métodos de pago -->
+    <h2 class="section-title">Formas de pago</h2>
+    <div class="metodos-pago">
+      <div class="metodo"><i class="fab fa-paypal"></i> PayPal (tarjeta / cuenta)</div>
+      <div class="metodo"><i class="fas fa-university"></i> Transferencia bancaria</div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p><i class="far fa-copyright"></i> Tu Diseño Invisible — Sistema ARCANUM 63. Conocimiento para despertar tu diseño interior.</p>
+  <p>Contacto: <a href="mailto:the.circles.1998@gmail.com">the.circles.1998@gmail.com</a> | WhatsApp +593 98 466 2817</p>
+</footer>
+
+<!-- Swiper JS (carrusel) -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  // Inicializar carrusel (sin ningún formulario asociado)
+  const swiper = new Swiper('.mySwiper', {
+    loop: true,
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    autoplay: { delay: 4000, disableOnInteraction: false },
+    breakpoints: { 640: { slidesPerView: 1 }, 768: { slidesPerView: 1 } }
+  });
+</script>
+</body>
+</html>
